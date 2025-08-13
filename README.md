@@ -1,2 +1,1 @@
-# Steganography_LSB
 # Steganography
