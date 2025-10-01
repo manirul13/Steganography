@@ -7,7 +7,7 @@ This is the new content from your temp-fix branch
 
 =======
 
-# A secure and efficient command-line tool written in C for hiding secret messages inside 24-bit BMP images using the Least Significant Bit (LSB) steganography technique.
+**A secure and efficient command-line tool written in C for hiding secret messages inside 24-bit BMP images using the Least Significant Bit (LSB) steganography technique.**
  
 
 📖 Overview
