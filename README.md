@@ -8,10 +8,7 @@ This is the new content from your temp-fix branch
 =======
 
 # A secure and efficient command-line tool written in C for hiding secret messages inside 24-bit BMP images using the Least Significant Bit (LSB) steganography technique.
-
-https://img.shields.io/badge/Language-C-blue.svg
-https://img.shields.io/badge/Platform-Linux%2520%257C%2520Windows-lightgrey.svg
-https://img.shields.io/badge/License-MIT-green.svg
+ 
 
 📖 Overview
 LSB Steganography is a technique to hide information within the digital data of an image file. This program modifies the least significant bits of the pixel data in a BMP image to encode a secret message. Because only the least significant bits are altered, the change is visually imperceptible to the human eye.
