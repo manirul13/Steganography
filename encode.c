@@ -225,92 +225,92 @@ Status do_encoding(EncodeInfo *encInfo)
     // call the rest encoding function here
     if (open_files(encInfo) == e_success)
     {
-        printf("INFO: Opened all the required files successfully\n");
+        printf("✅INFO: Opened all the required files successfully\n");
         printf("Done\n");
         if (check_capacity(encInfo) == e_success)
         {
-            printf("INFO: Image has enough capacity to do the encoding\n");
+            printf("✅INFO: Image has enough capacity to do the encoding\n");
             printf("Done\n");
             if (copy_bmp_header(encInfo->fptr_src_image, encInfo->fptr_stego_image) == e_success)
             {
-                printf("INFO: Copied the header successfully\n");
+                printf("✅INFO: Copied the header successfully\n");
                 printf("Done\n");
                 if (encode_magic_string(MAGIC_STRING, encInfo) == e_success)
                 {
-                    printf("INFO: Magic string encoded successfully\n");
+                    printf("✅INFO: Magic string Encoded successfully\n");
                     printf("Done\n");
                     if (encode_size(strlen(".txt"), encInfo->fptr_src_image, encInfo->fptr_stego_image) == e_success)
                     {
-                        printf("INFO: Encoded secret file extension size successfully\n");
+                        printf("✅INFO: Encoded secret file extension size successfully\n");
                         printf("Done\n");
                         if (encode_secret_file_extn(encInfo->extn_secret_file, encInfo) == e_success)
                         {
-                            printf("INFO: Successfully encode secret file extension\n");
+                            printf("✅INFO: Successfully Encode secret file extension\n");
                             printf("Done\n");
                             if (encode_secret_file_size(encInfo->size_secret_file, encInfo) == e_success)
                             {
-                                printf("INFO: Encoded secret file size successfully\n");
+                                printf("✅INFO: Encoded secret file size successfully\n");
                                 printf("Done\n");
                                 if (encode_secret_file_data(encInfo) == e_success)
                                 {
-                                    printf("INFO: Encoded secret data successfully\n");
+                                    printf("✅INFO: Encoded secret data successfully\n");
                                     printf("Done\n");
                                     if (copy_remaining_img_data(encInfo->fptr_src_image, encInfo->fptr_stego_image) == e_success)
                                     {
-                                        printf("INFO: Copied remaining rgb data successfully\n");
+                                        printf("✅INFO: Copied remaining RGB data successfully\n");
                                         printf("Done\n");
                                     }
                                     else
                                     {
-                                        printf("Failed to copy rgb data\n");
+                                        printf("❌Failed to copy RGB data\n");
                                         return e_failure;
                                     }
                                 }
                                 else
                                 {
-                                    printf("Failed to encode secret data\n");
+                                    printf("❌Failed to Encode secret data\n");
                                     return e_failure;
                                 }
                             }
                             else
                             {
-                                printf("Failed to encoe secret file size\n");
+                                printf("❌Failed to Encode secret file size\n");
                                 return e_failure;
                             }
                         }
                         else
                         {
-                            printf("Failed to encode the secret file extension\n");
+                            printf("❌Failed to Encode the secret file extension\n");
                             return e_failure;
                         }
                     }
                     else
                     {
-                        printf("Failed to encode the secret file extension size\n");
+                        printf("❌Failed to encode the secret file extension size\n");
                         return e_failure;
                     }
                 }
                 else
                 {
-                    printf("Faild to encode the magic string\n");
+                    printf("❌Faild to encode the magic string\n");
                     return e_failure;
                 }
             }
             else
             {
-                printf("Failed to copy the header\n");
+                printf("❌Failed to copy the header\n");
                 return e_failure;
             }
         }
         else
         {
-            printf("Failure!!! Image does not have enough bytes to do the encoding\n");
+            printf("❌Failure!!! Image does not have enough bytes to do the encoding\n");
             return e_failure;
         }
     }
     else
     {
-        printf("Failed to open the required files\n");
+        printf("❌Failed to open the required files\n");
         return e_failure;
     }
     return e_success;

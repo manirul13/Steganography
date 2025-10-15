@@ -160,65 +160,65 @@ Status do_decoding(DecodeInfo *decInfo)
 {
     if (open_decode_files(decInfo) == d_success)
     {
-        printf("INFO: Opened stego and output files successfully.\n");
+        printf("✅INFO: Opened stego and output files successfully.\n");
         printf("Done\n");
         if (decode_magic_string(MAGIC_STRING, decInfo) == d_success)
         {
-            printf("INFO: Decode magic string successfully\n");
+            printf("✅INFO: Decode magic string successfully\n");
             printf("Done\n");
             int extn_size;
             if (decode_secret_file_extn_size(decInfo, &extn_size) == d_success)
             {
-                printf("INFO: Decode secret file extension size successfully\n");
+                printf("✅INFO: Decode secret file extension size successfully\n");
                 printf("Done\n");
                 char extn[MAX_DECODE_FILE_SUFFIX];
                 if (decode_secret_file_extn(extn, decInfo, extn_size) == d_success)
                 {
-                    printf("INFO: Decode secret file extension succesfully\n");
+                    printf("✅INFO: Decode secret file extension succesfully\n");
                     printf("Done\n");
                     int file_size;
                     if (decode_secret_file_size(&file_size, decInfo) == d_success)
                     {
-                        printf("INFO: Decode secret file size successfully\n");
+                        printf("✅INFO: Decode secret file size successfully\n");
                         printf("Done\n");
                         if (decode_secret_file_data(decInfo, file_size) == d_success)
                         {
-                            printf("INFO: Decoded secret file data successfully.\n");
+                            printf("✅INFO: Decoded secret file data successfully.\n");
                             printf("Done\n");
                         }
                         else
                         {
-                            printf("Failed!! to decode secret file data.\n");
+                            printf("❌Failed!! to Decode secret file data.\n");
                             return d_failure;
                         }
                     }
                     else
                     {
-                        printf("Failed!! to decode secret file size.\n");
+                        printf("❌Failed!! to Decode secret file size.\n");
                         return d_failure;
                     }
                 }
                 else
                 {
-                    printf("Failed!! to decode secret file extension.\n");
+                    printf("❌Failed!! to Decode secret file extension.\n");
                     return d_failure;
                 }
             }
             else
             {
-                printf("Failed!! to decode file extension size.\n");
+                printf("❌Failed!! to Decode file extension size.\n");
                 return d_failure;
             }
         }
         else
         {
-            printf("Magic string mismatch or not found.\n");
+            printf("❌Magic string mismatch or not found.\n");
             return d_failure;
         }
     }
     else
     {
-        printf("ERROR: Failed to open files.\n");
+        printf("❌ERROR: Failed to open files.\n");
         return d_failure;
     }
 
